@@ -1,4 +1,4 @@
-package com.kazale.pontointeligente.api.impl;
+package com.kazale.pontointeligente.api.services.impl;
 
 import java.util.Optional;
 
