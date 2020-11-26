@@ -3,7 +3,7 @@ package com.kazale.pontointeligente.api.services;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import com.kazale.pontointeligente.api.entity.Lancamento;
 
@@ -16,7 +16,7 @@ public interface LancamentoService {
 	 * @param pageRequest
 	 * @return Page<Lancamento>
 	 */
-	Page<Lancamento> buscarPorFuncionarioId(Long funcionarioId, PageRequest pageRequest);
+	Page<Lancamento> buscarPorFuncionarioId(Long funcionarioId, Pageable pageRequest);
 	
 	/**
 	 * Retorna um lançamento por ID.

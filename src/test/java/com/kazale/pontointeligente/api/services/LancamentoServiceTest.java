@@ -14,8 +14,10 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -42,12 +44,14 @@ public class LancamentoServiceTest {
 		BDDMockito.given(this.lancamentoRepository.save(Mockito.any(Lancamento.class))).willReturn(new Lancamento());
 	}
 
-//	@Test
-//	public void testBuscarLancamentoPorFuncionarioId() {
-//		Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L, new PageRequest(0, 10));
+	@Test
+	public void testBuscarLancamentoPorFuncionarioId() {
+		Pageable pageRequest = PageRequest.of(0,10);
+		
+		Page<Lancamento> lancamento = this.lancamentoService.buscarPorFuncionarioId(1L, pageRequest);
 
-//		assertNotNull(lancamento);
-//	}
+		assertNotNull(lancamento);
+	}
 
 	@Test
 	public void testBuscarLancamentoPorId() {
